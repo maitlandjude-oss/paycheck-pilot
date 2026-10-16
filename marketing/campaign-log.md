@@ -27,3 +27,11 @@ Description: AI-Payer is a free browser-based tool built around “I got paid. W
 ## Measurement boundaries
 
 No external visitor/plan analytics were added. Browser-only counters would not provide an operator-visible total. Feedback form exists and sends through FormSubmit; submission receipt was not tested in this run. PayPal support link exists; clicks do not prove payment. No inbox or PayPal receipt access was available. Revenue remains the owner's supplied $0 baseline until an actual unrelated-person payment is verified.
+
+## Follow-up: 2026-10-16
+
+- Publisher authentication succeeded in the controlled browser.
+- Ultimate Free Tools: complete AI-Payer Finance listing saved as draft #513. Review submission rejected with “At least one industry.” Only Hospitality is offered; did not miscategorize the product. Not published or submitted for review. Support is email-only; no message sent.
+- Live production check confirmed the new search title and corrected $1.18 scoreboard.
+- Ignlab Launch: verified free, no-account tool submissions and Finance category. Filled accurate listing at https://launch.ignlab.net/submit.html with fictional shortfall example. Stopped at human-verification arithmetic question; handed form to owner to answer and submit. Submission NOT yet confirmed. Verify receipt before counting a placement. Initial page load was unusually slow; subsequent form interactions succeeded.
+- Traffic, generated plans, feedback and payments remain unmeasured. No verified new earnings. Additional spend $0; cumulative spent $1.18, earned $0, net -$1.18.
