@@ -55,3 +55,11 @@ It doesn’t connect to banks or pay bills; saved bills stay in your browser. It
 What would make this useful for someone starting from a cash shortage? In particular, where would its ordering fail to reflect a real household’s priorities? There’s also an optional feedback form on the site. No personal financial details needed.
 
 Next: restore supported browser access before posting; prioritize verified budgeting/paycheck audiences over broad launch directories. No additional spend or verified earnings.
+
+## 2026-10-16 18:11 America/New_York — Scenario social creative
+
+Prepared fictional social creative: $2,000 available, $500 living needs, $1,800 bills before payday; question “What would YOU pay first?” Built-in image generation requested for organic TikTok/photo use. Not posted; no placement, impressions or earnings counted.
+
+Caption draft: “$2,000 in hand. $2,300 in bills and everyday needs before payday. What would you pay first—and what information would change your answer? We’re building AI-Payer, a free tool that protects the living amount you enter and organizes bills for review. Try AI-Payer.online and tell us where the plan misses real life. Fictional example. No bank connection or automatic payments.”
+
+Other bounded creative tests: overdue utility vs groceries; minimum debt payment vs transport to work; irregular income before rent. Never imply universal financial priorities; ask about consequences and household needs. Next: obtain supported access to the owner's chosen social account before publication. Additional spend $0; earned $0 verified.
