@@ -39,3 +39,19 @@ No external visitor/plan analytics were added. Browser-only counters would not p
 ## 2026-10-16 18:06 America/New_York — Ignlab submission attempt
 
 Owner explicitly authorized answering the arithmetic verification and submitting for free review. Entered 10 for visible 8 + 2 question and clicked Submit for review once. Button became disabled. Subsequent receipt observation was blocked by browser credential protection. Recovered by navigating to directory home; public search did not show AI-Payer. Receipt and review-queue acceptance are UNCONFIRMED; no successful placement counted. Do not resubmit blindly, to avoid a duplicate. Next: check for a public listing after editorial review or obtain submission-status confirmation. Additional spend $0; revenue $0 verified.
+
+## 2026-10-16 18:08 America/New_York — Targeted community distribution
+
+Verified primary thread: https://www.reddit.com/r/financialindependence/comments/1x5mr5x/weekly_selfpromotion_thread_wednesday_october_14/ explicitly permits project promotion and feedback requests in that thread; forbids referral links and link-only posts. Audience fit is secondary to paycheck/budget communities. r/budget primary rules could not be retrieved, so no promotion authorized there. Controlled browser inspection of Reddit was blocked by credential protection; one explicit origin navigation recovery also failed. No post sent. Do not count a placement.
+
+Prepared thread-specific comment:
+
+Disclosure: I’m working on AI-Payer, a free tool, and would value critical feedback. It’s for the step before saving or investing: deciding what to pay when the next paycheck won’t cover everything.
+
+Fictional example: $2,000 available, $500 needed for groceries, transportation and necessities, and $1,800 in bills due before payday. That leaves $1,500 for bills and a $300 gap to review. AI-Payer reserves the living amount you enter, organizes required payments, and flags shortfalls.
+
+It doesn’t connect to banks or pay bills; saved bills stay in your browser. It’s an organizational tool, not individualized financial advice. https://ai-payer.online/
+
+What would make this useful for someone starting from a cash shortage? In particular, where would its ordering fail to reflect a real household’s priorities? There’s also an optional feedback form on the site. No personal financial details needed.
+
+Next: restore supported browser access before posting; prioritize verified budgeting/paycheck audiences over broad launch directories. No additional spend or verified earnings.
