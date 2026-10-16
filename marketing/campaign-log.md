@@ -35,3 +35,7 @@ No external visitor/plan analytics were added. Browser-only counters would not p
 - Live production check confirmed the new search title and corrected $1.18 scoreboard.
 - Ignlab Launch: verified free, no-account tool submissions and Finance category. Filled accurate listing at https://launch.ignlab.net/submit.html with fictional shortfall example. Stopped at human-verification arithmetic question; handed form to owner to answer and submit. Submission NOT yet confirmed. Verify receipt before counting a placement. Initial page load was unusually slow; subsequent form interactions succeeded.
 - Traffic, generated plans, feedback and payments remain unmeasured. No verified new earnings. Additional spend $0; cumulative spent $1.18, earned $0, net -$1.18.
+
+## 2026-10-16 18:06 America/New_York — Ignlab submission attempt
+
+Owner explicitly authorized answering the arithmetic verification and submitting for free review. Entered 10 for visible 8 + 2 question and clicked Submit for review once. Button became disabled. Subsequent receipt observation was blocked by browser credential protection. Recovered by navigating to directory home; public search did not show AI-Payer. Receipt and review-queue acceptance are UNCONFIRMED; no successful placement counted. Do not resubmit blindly, to avoid a duplicate. Next: check for a public listing after editorial review or obtain submission-status confirmation. Additional spend $0; revenue $0 verified.
