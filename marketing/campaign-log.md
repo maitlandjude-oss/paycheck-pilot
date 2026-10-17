@@ -103,3 +103,7 @@ Owner supplied https://aipayer.goatcounter.com/. Tenant exists and dashboard req
 
 
 Activation verification: live /analytics.js now fetched successfully and syntax checked; live homepage includes analytics.js and opt-out. Authenticated GoatCounter dashboard confirmed correct endpoint and reports No data received / 0 collected visits. Email verification pending for owner's signup address. This is a collection baseline only, not evidence of zero historical human visitors. No synthetic visits sent. Need owner to click email verification link, then confirm first real collection without counting operator tests as prospects.
+
+
+## 2026-10-17 15:14 America/New_York — Email verified
+Owner corrected account email and completed verification. Authenticated dashboard no longer shows verification warning. Still No data received / 0 collected visits, so end-to-end collection remains unconfirmed. Production analytics script was previously fetched and syntax verified. Owner's single explicitly labelled validation visit and plan generation may be used to verify collection, but must be excluded from prospective-user milestones and reported as operator testing. No verified new human visitors, feedback or payments. Next: validate first collection, then owner uses /?analytics=off to exclude future tests. Spend unchanged.
