@@ -79,3 +79,20 @@ Distribution attempt: opened previously verified finance self-promotion thread. 
 Measurement: verified GoatCounter official terms permit reasonable public usage including small-to-medium businesses. Account terms explicitly require initial registration manually by a human. Opened https://www.goatcounter.com/signup; not registered, no telemetry deployed. Required next human action: create account, set domain ai-payer.online, choose password, complete verification. After owner signup: use secure login to configure aggregate-only settings, install limited page and event counters without financial inputs, test with operator activity excluded, then resume distribution. Signup is for measurement, not a paid service.
 
 Status: useful resource LIVE; Reddit placement BLOCKED; analytics setup WAITING ON HUMAN SIGNUP. Public external placements still unconfirmed. Visitor and plan totals unknown. New spend $0; cumulative spent $1.18, earned $0 verified, net -$1.18.
+
+
+## 2026-10-17 14:58 America/New_York baseline
+
+Live HTTPS homepage and GitHub inspected. SEO title and scenario link live. No active analytics collector. Search checks returned no confirmed domain pages; indexing remains unverified.
+
+TikTok @distl0 post 7697708050278354207: 25-second original fictional paycheck scenario submitted; latest Studio snapshot shows Everyone and no review label. 0 views, 0 likes, 0 comments. No duplicate posted. Website visits attributable to it unknown.
+
+Prepared marketing/prepared-analytics.js, inactive and not included in production pages. Supports allowlisted src and UTM attribution, planner start, Build click, generated plan, feedback submission attempt and support click. Does not read financial values, bill storage or feedback content. Includes operator opt-out and privacy preference exclusions. Syntax checked; full behavioral and collection tests required before activation. Feedback attempts are not confirmed receipts; support clicks are not revenue.
+
+Baseline: total/new/returning visitors, sessions, pageviews, source/referrer breakdown, top pages, geography/devices, plans, feedback and support clicks UNKNOWN. No prior traffic can be reconstructed from absent analytics. Trend too early to determine; no best/worst channel established. Milestones 1–6 remain unverified.
+
+Daily afternoon growth/report automation created starting October 18, America/New_York. Next experiment: measure TikTok payday scenario using ?src=tiktok&utm_campaign=payday_2000 after activation; compare a distinct bills-before-payday scenario after engagement review.
+
+Human blocker per owner brief: create free GoatCounter account for ai-payer.online, completing signup/terms/human verification, then provide account name or count endpoint, never credentials. Integrate only verified owner endpoint, exclude operator visits, test no financial disclosure and verify deployment/collection. Pause further phase execution here as requested.
+
+Additional spent $0; total spent $1.18; verified earned $0; net -$1.18.
