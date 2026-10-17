@@ -1,0 +1,19 @@
+# AI-Payer TikTok experiment
+
+Window: October 17 2026 15:39 to October 24 2026 15:39 America/New_York.
+Hourly opportunity automation created; next review approximately 16:40. Schedule ends within the seven-day window. Hourly opportunities are not guaranteed posts. Initial editorial limit: 2 AI-Payer posts per rolling 24 hours, at least 6 hours apart, including existing post. This is our cautious cap, not a published TikTok limit. Stop on restrictions and never evade. Current rules forbid spam and high-volume automated commercial content; no verified hourly allowance found. Reassess rules/quality and results each 12–24 hours before increasing, and reduce on warnings or poor results.
+
+## Baseline
+Existing video 7697708050278354207 ($2,000/$2,300 shortfall, 25 seconds) published October 17 around 14:38 America/New_York; Studio displays 11:38 (browser timezone differs). Everyone visibility. Latest 0 views,0 likes,0 comments. Shares/profile visits/link clicks unavailable in listing. No verified content warning observed.
+GoatCounter: 1 collected visit to /, source unknown; cannot classify as prospective user or attribute to TikTok. No planner events displayed. Country/device data are aggregates, not identities. TikTok attribution not established. Revenue $0 verified; spend $1.18; net -$1.18.
+Profile baseline: 787 followers, no bio, no website link. Edit interface offers only photo,username,name,bio; no clickable website field. Bio update attempted to disclose ownership and display AI-Payer.online; verify saved state before claiming success. Never use 'link in bio' without a functional hyperlink.
+
+## Creative rotation and quality
+70% useful scenarios,20% interactive questions,10% direct promotion over rolling 10 posts. Faceless fictional examples only; 10–30 seconds. Distinct concept,math,hook,visual and CTA; not just changed dollar values. Explain minimums versus optional extra debt payments, cashflow timing, living costs,irregular income and contextual consequences. No guaranteed outcomes or individualized advice. Verify arithmetic,legibility,original/licensed media,disclosure and account state before posting. No purchased media/music. Display AI-Payer.online; use https://ai-payer.online/?src=tiktok when links permitted.
+
+## Ready creative
+ai-payer-extra-debt.mp4: 20s educational minimum-versus-extra debt insight. $900 available minus $300 living needs minus $600 required bills leaves $0 for extra payoff. Groceries $180,transport $70,medicine $50. Fictional; do not infer which specific bill should be deferred. Cream/green layout distinct from first video. Saved durable asset; not published yet. Earliest candidate publication after 20:38 October 17 under initial 6h spacing, subject to checks. Do not create duplicate upload if a draft/scheduled post exists.
+Caption: '$900 until payday. $600 in required bills. That remaining $300 might already be needed for groceries, transport and medicine. Required debt minimums and optional extra payoff are different decisions. Fictional educational example—not personal financial advice. I built AI-Payer to help organize these choices: AI-Payer.online. What everyday necessity would you add? Please keep personal financial details private. #budgeting #paycheck #bills'
+
+## Each review
+Read campaign log and this file first. Check account warnings,metrics,comments and permitted capabilities. Log timestamp,concept,hook,scenario,CTA,post ID/URL/status,views/likes/comments/shares/profile visits/website clicks and TikTok-attributed site visits/plans/feedback/support. Unknown is not zero. Preserve criticism; respond helpfully without sensitive-data requests. Do not confuse support clicks with payments. Record genuine payments only from verified unrelated-person receipts. Once daily compare formats and reduce repeated poor performers. At end deliver final period report; no posts after expiry.
