@@ -1,0 +1,70 @@
+{
+  "connection_started": "2026-10-21T12:56:39.1553905Z",
+  "client_name": "Codex (PowerShell HTTP transport)",
+  "client_version": "1.0",
+  "server": {
+    "name": "nitro",
+    "version": "1.7.0"
+  },
+  "protocol": "2025-03-26",
+  "signup_http": 201,
+  "preview": {
+    "dry_run": true,
+    "channel": "email",
+    "to": "proof@dogfood.nitrosend.net",
+    "subject": "LexDollarChallenge MCP connection check",
+    "body": "Hello Nitrosend proof inbox. This is a short first-send check from LexDollarChallenge, operated by maitlandjude-oss, through the Nitrosend MCP server. Sent on 2026-10-21.",
+    "template_id": null,
+    "valid": true
+  },
+  "send": {
+    "id": 5157387,
+    "channel": "email",
+    "to": "proof@dogfood.nitrosend.net",
+    "subject": "LexDollarChallenge MCP connection check",
+    "status": "queued",
+    "provider_id": null,
+    "status_reason_code": null,
+    "status_reason": null,
+    "status_reason_category": null,
+    "failure_code": null,
+    "failure_reason": null,
+    "failure_category": null,
+    "transactional": true,
+    "compliance_note": "Transactional: uses the transactional admission workload, so marketing consent/footer rules do not apply; sender, account, circuit, pacing, and provider authorization still apply.",
+    "sent_at": null,
+    "created_at": "2026-10-21T12:59:00.372Z",
+    "dry_run": false
+  },
+  "readback": {
+    "entity": "messages",
+    "items": [
+      {
+        "id": 5157387,
+        "channel": "email",
+        "to": "proof@dogfood.nitrosend.net",
+        "subject": "LexDollarChallenge MCP connection check",
+        "status": "sent",
+        "provider_id": "010001a15e8b33e9-5be331cb-9d0f-444a-a4b5-b3cf199d81fe-000000",
+        "flow_id": null,
+        "source_type": null,
+        "source_name": null,
+        "status_reason_code": null,
+        "status_reason": null,
+        "status_reason_category": null,
+        "failure_code": null,
+        "failure_reason": null,
+        "failure_category": null,
+        "sent_at": "2026-10-21T12:59:03Z",
+        "created_at": "2026-10-21T12:59:00Z"
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "per": 1,
+      "total": 1,
+      "total_pages": 1
+    }
+  }
+}
+
