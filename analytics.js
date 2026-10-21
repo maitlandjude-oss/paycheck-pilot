@@ -20,23 +20,18 @@
   try { referrer = new URL(document.referrer).origin; } catch (_) {}
   const page = location.pathname === '/paycheck-shortfall.html' ? '/paycheck-shortfall.html' : '/';
   
-  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked']);
+  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated']);
   function send(name) {
     if (!allowed.has(name)) return;
     const payload = {path:name,title:name,event:true,referrer:campaign || referrer};
     beacon(payload);
   }
-  let started = false;
-  document.querySelector('main')?.addEventListener('input', e => {
-    if (!started && (e.target.closest('#billForm') || ['cash','nextPay','food','transport','needs','buffer'].includes(e.target.id))) {
-      started = true; send('planner_started');
-    }
+  const once = new Set();
+  document.addEventListener('aipayer:event', e => {
+    if (!allowed.has(e.detail) || once.has(e.detail)) return;
+    once.add(e.detail); send(e.detail);
   });
-  document.getElementById('sample')?.addEventListener('click', () => send('example_clicked'));
-  document.getElementById('build')?.addEventListener('click', () => {
-    send('build_clicked');
-    if (document.querySelector('#plan .plan-row')) send('plan_generated');
-  });
+  if (page === '/') send('landing');
   document.querySelector('form[action^="https://formsubmit.co/"]')?.addEventListener('submit', () => send('feedback_submit_attempt'));
   document.querySelector('.support-btn')?.addEventListener('click', () => send('support_clicked'));
   function beacon(payload) {
