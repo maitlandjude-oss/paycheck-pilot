@@ -1,0 +1,140 @@
+[
+  {
+    "method": "notifications/initialized",
+    "response_file": "nitro-initialized-response.json",
+    "http_status": 202,
+    "params": {},
+    "started_at": "2026-10-21T12:57:54.5797204Z",
+    "completed_at": "2026-10-21T12:57:55.1161788Z"
+  },
+  {
+    "method": "tools/list",
+    "response_file": "nitro-tools-response.json",
+    "http_status": 200,
+    "params": {},
+    "started_at": "2026-10-21T12:57:55.1675443Z",
+    "completed_at": "2026-10-21T12:57:55.4740322Z"
+  },
+  {
+    "method": "tools/call",
+    "response_file": "nitro-status-response.json",
+    "http_status": 200,
+    "params": {
+      "name": "nitro_get_status",
+      "arguments": {}
+    },
+    "started_at": "2026-10-21T12:57:55.5157172Z",
+    "completed_at": "2026-10-21T12:57:55.8019796Z"
+  },
+  {
+    "params": {
+      "uri": "nitro://guide"
+    },
+    "http_status": 200,
+    "completed_at": "2026-10-21T12:58:11.0543389Z",
+    "response_file": "nitro-guide-response.json",
+    "method": "resources/read",
+    "started_at": "2026-10-21T12:58:10.6400565Z"
+  },
+  {
+    "started_at": "2026-10-21T12:58:22.405955Z",
+    "completed_at": "2026-10-21T12:58:23.1851282Z",
+    "response_file": "nitro-sender-response.json",
+    "params": {
+      "name": "nitro_manage_domains",
+      "arguments": {
+        "operation": "prepare_brand_subdomain",
+        "params": {
+          "subdomain": "lexdollarchallenge"
+        }
+      }
+    },
+    "http_status": 200,
+    "method": "tools/call"
+  },
+  {
+    "http_status": 200,
+    "completed_at": "2026-10-21T12:58:36.2181875Z",
+    "started_at": "2026-10-21T12:58:35.8130122Z",
+    "method": "tools/call",
+    "params": {
+      "name": "nitro_send_message",
+      "arguments": {
+        "channel": "email",
+        "to": "proof@dogfood.nitrosend.net",
+        "subject": "LexDollarChallenge MCP connection check",
+        "body": "Hello Nitrosend proof inbox. This is a short first-send check from LexDollarChallenge, operated by maitlandjude-oss, through the Nitrosend MCP server. Sent on 2026-10-21.",
+        "idempotency_key": "lexdollarchallenge-mcp-first-send-20261021-01",
+        "dry_run": true
+      }
+    },
+    "response_file": "nitro-send-preview-response.json"
+  },
+  {
+    "method": "tools/call",
+    "started_at": "2026-10-21T12:58:59.7540505Z",
+    "response_file": "nitro-send-response.json",
+    "completed_at": "2026-10-21T12:59:03.6016103Z",
+    "http_status": 200,
+    "params": {
+      "name": "nitro_send_message",
+      "arguments": {
+        "channel": "email",
+        "to": "proof@dogfood.nitrosend.net",
+        "subject": "LexDollarChallenge MCP connection check",
+        "body": "Hello Nitrosend proof inbox. This is a short first-send check from LexDollarChallenge, operated by maitlandjude-oss, through the Nitrosend MCP server. Sent on 2026-10-21.",
+        "idempotency_key": "lexdollarchallenge-mcp-first-send-20261021-01",
+        "dry_run": false
+      }
+    }
+  },
+  {
+    "http_status": 200,
+    "started_at": "2026-10-21T12:59:19.5226056Z",
+    "method": "tools/call",
+    "completed_at": "2026-10-21T12:59:19.9872967Z",
+    "params": {
+      "name": "nitro_query",
+      "arguments": {
+        "entity": "messages",
+        "filters": {
+          "id": 5157387
+        },
+        "per": 1
+      }
+    },
+    "response_file": "nitro-message-status-response.json"
+  },
+  {
+    "http_status": 200,
+    "started_at": "2026-10-21T12:59:20.0299894Z",
+    "method": "tools/call",
+    "completed_at": "2026-10-21T12:59:20.4851207Z",
+    "params": {
+      "name": "nitro_search_docs",
+      "arguments": {
+        "query": "MCP proof inbox receipt email runx receipt link",
+        "limit": 3
+      }
+    },
+    "response_file": "nitro-receipt-docs-response.json"
+  },
+  {
+    "started_at": "2026-10-21T12:59:42.4742924Z",
+    "http_status": 200,
+    "params": {
+      "name": "nitro_query",
+      "arguments": {
+        "entity": "history",
+        "filters": {
+          "from": "2026-10-21T12:54:00Z"
+        },
+        "per": 20
+      }
+    },
+    "completed_at": "2026-10-21T12:59:42.9145828Z",
+    "response_file": "nitro-history-response.json",
+    "method": "tools/call"
+  }
+]
+
