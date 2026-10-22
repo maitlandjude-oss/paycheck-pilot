@@ -4,6 +4,7 @@
   'use strict';
   const endpoint = 'https://aipayer.goatcounter.com/count'; // Set to the verified owner account's https://CODE.goatcounter.com/count.
   const params = new URLSearchParams(location.search);
+  if (params.has('walkthrough')) return; // Embedded fictional runs never enter the funnel.
   try {
     if (params.get('analytics') === 'off') localStorage.setItem('aipayerAnalyticsOff','1');
     if (params.get('analytics') === 'on') localStorage.removeItem('aipayerAnalyticsOff');
@@ -20,11 +21,12 @@
   try { referrer = new URL(document.referrer).origin; } catch (_) {}
   const page = location.pathname === '/paycheck-shortfall.html' ? '/paycheck-shortfall.html' : '/';
   
-  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated']);
+  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated','walkthrough_play','walkthrough_complete']);
   function send(name) {
     if (!allowed.has(name)) return;
     const payload = {path:name,title:name,event:true,referrer:campaign || referrer};
     beacon(payload);
+    if (page === '/') beacon({...payload,path:'visual_v1/' + name,title:'visual_v1/' + name});
   }
   const once = new Set();
   document.addEventListener('aipayer:event', e => {
@@ -32,6 +34,14 @@
     once.add(e.detail); send(e.detail);
   });
   if (page === '/') send('landing');
+  document.getElementById('build')?.addEventListener('click', () => {
+    const sample = typeof sampleMode !== 'undefined' && sampleMode;
+    const name = sample ? 'sample_build_clicked' : 'build_clicked';
+    if (!once.has(name)) { once.add(name);
+      if (sample) beacon({path:'visual_v1/' + name,title:'visual_v1/' + name,event:true,referrer:campaign || referrer});
+      else send(name);
+    }
+  }, {capture:true});
   document.querySelector('form[action^="https://formsubmit.co/"]')?.addEventListener('submit', () => send('feedback_submit_attempt'));
   document.querySelector('.support-btn')?.addEventListener('click', () => send('support_clicked'));
   function beacon(payload) {

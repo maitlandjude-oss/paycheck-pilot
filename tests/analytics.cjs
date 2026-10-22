@@ -1,0 +1,11 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync('analytics.js','utf8');
+function run({search='',webdriver=false,dnt='',gpc=false,host='ai-payer.online'}={}){
+ const hits=[],listeners={},handlers={},storage=new Map(); const c={URL,URLSearchParams,Set,Math,screen:{width:390,height:844},window:{devicePixelRatio:1},location:{search,hostname:host,pathname:'/'},navigator:{webdriver,doNotTrack:dnt,globalPrivacyControl:gpc},localStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)},document:{referrer:'',visibilityState:'visible',addEventListener:(n,fn)=>listeners[n]=fn,querySelector:()=>null,getElementById:()=>({addEventListener:(n,fn)=>handlers[n]=fn})},Image:class{set src(v){hits.push(new URL(v))}},sampleMode:false};vm.runInNewContext(source,c);return {hits,c,event:name=>listeners['aipayer:event']?.({detail:name}),build:()=>handlers.click?.(),storage};
+}
+let t=run();for(const event of ['walkthrough_play','walkthrough_complete','own_plan_started','plan_generated']){t.event(event);t.event(event);}t.build();t.build();assert.deepEqual(t.hits.filter(u=>u.searchParams.get('p').startsWith('visual_v1/')).map(u=>u.searchParams.get('p')),['visual_v1/landing','visual_v1/walkthrough_play','visual_v1/walkthrough_complete','visual_v1/own_plan_started','visual_v1/plan_generated','visual_v1/build_clicked']);assert(t.hits.every(u=>!/[?$]850|Rent|food|cash/.test(u.toString())));
+for(const opts of [{search:'?analytics=off'},{search:'?walkthrough=1&analytics=off'},{webdriver:true},{dnt:'1'},{gpc:true},{host:'localhost'}])assert.equal(run(opts).hits.length,0);
+t=run();t.c.sampleMode=true;t.build();assert(t.hits.some(u=>u.searchParams.get('p')==='visual_v1/sample_build_clicked'));assert(!t.hits.some(u=>u.searchParams.get('p')==='visual_v1/build_clicked'));
+const cp=require('child_process');assert.equal(fs.readFileSync('planner.js','utf8').replace(/\r/g,''),cp.execFileSync('git',['show','HEAD:planner.js'],{encoding:'utf8'}).replace(/\r/g,''));
+const html=fs.readFileSync('index.html','utf8');for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(match[1]);
+console.log('PASS: analytics cohort events, deduplication, sample separation, privacy exclusions, no financial payloads, inline syntax, planner.js byte-equivalent to baseline');

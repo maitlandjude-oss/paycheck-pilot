@@ -24,11 +24,6 @@ $('continue').addEventListener('click',()=>{
   if(!$('cash').value||!$('nextPay').value||!$('cash').reportValidity()||!$('nextPay').reportValidity()){$('introError').textContent='Enter your available money and next income date.';return;}
   $('introError').textContent='';revealPlanner();$('billsSection').focus();
 });
-$('demo').addEventListener('click',()=>{
-  signal('demo_started');const s=scenario(),r=calculatePlan(s.bills,s.values);
-  $('demoResult').innerHTML=`<h3>Here’s how the $850 is organized</h3><div class="plan-row pay demo-step"><strong>Set aside ${money(Math.min(r.start,r.living))} for groceries</strong><p class="note">${money(r.start-r.living)} left to consider for bills.</p></div>`+r.rows.map(row=>`<div class="plan-row ${row.state} demo-step"><span class="badge">${row.state==='pay'?'BUDGETED NOW':'SHORTFALL / REVIEW'}</span><br><strong>${esc(row.b.name)} · ${money(row.b.amount)}</strong><p class="note">${esc(row.why)}</p></div>`).join('')+`<p><strong>${money(r.paid)} in required payments budgeted · ${money(r.cash)} unallocated.</strong></p><p>The electricity bill does not fit in full. The algorithm leaves it for review and budgets the smaller card minimum. It does not make a partial electricity payment or arrange an extension. Check consequences before acting.</p><button class="primary" id="demoOwn" type="button">Build my plan · Use my numbers →</button>`;
-  $('demoResult').hidden=false;$('demo').setAttribute('aria-expanded','true');$('demoOwn').addEventListener('click',ownPlan);$('demoResult').focus();signal('demo_completed');
-});
 $('sample').addEventListener('click',()=>{
   if(!sampleMode)ownBills=bills;
   const s=scenario();sampleMode=true;bills=s.bills;renderBills();Object.entries(s.values).forEach(([id,value])=>$(id).value=value);
