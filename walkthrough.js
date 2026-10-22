@@ -74,7 +74,7 @@
       ready = true; frame.hidden = false; $('demoPoster').hidden = true;
       $('demo').disabled = false; showScene(0); play();
     };
-    frame.src = '/?walkthrough=1&analytics=off';
+    frame.src = '/?walkthrough=1&analytics=off&v=visual_v1';
   }
   $('demo').addEventListener('click', () => {
     if (!ready || elapsed >= 25) { signal('walkthrough_play'); reset(); }
