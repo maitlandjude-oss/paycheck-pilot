@@ -11,14 +11,28 @@ function scenario(){
     {id:'demo-card',name:'Card minimum',amount:75,due:ds(5),priority:'debt',balance:0,apr:0}
   ]};
 }
-function revealPlanner(){document.querySelectorAll('.entry').forEach(el=>el.hidden=false);}
+function setStep(step){
+  document.querySelectorAll('[data-step]').forEach(el=>{
+    if(Number(el.dataset.step)===step)el.setAttribute('aria-current','step');
+    else el.removeAttribute('aria-current');
+  });
+}
+function revealPlanner(){document.querySelectorAll('.entry').forEach(el=>el.hidden=false);setStep(2);}
 function ownPlan(){
   if(sampleMode){bills=ownBills;renderBills();['cash','nextPay','food','transport','needs','buffer'].forEach(id=>$(id).value='');}
-  sampleMode=false;$('planSection').hidden=true;$('intro').hidden=false;$('intro').focus();
+  sampleMode=false;$('planSection').hidden=true;$('intro').hidden=false;setStep(1);$('intro').focus();
   signal('own_plan_started');
 }
 let ownBills=bills;
 ['cash','nextPay'].forEach(id=>$('moneyStart').append($(id).parentElement));
+// Start with the user's task; keep the optional example below the form.
+$('walkthrough').before($('intro'));
+$('planSection').after($('walkthrough'));
+$('intro').hidden=false;
+setStep(1);
+$('cash').required=true;
+$('nextPay').required=true;
+['food','transport','needs','buffer'].forEach(id=>$(id).addEventListener('focus',()=>setStep(3)));
 document.querySelectorAll('.own').forEach(el=>el.addEventListener('click',ownPlan));
 $('continue').addEventListener('click',()=>{
   if(!$('cash').value||!$('nextPay').value||!$('cash').reportValidity()||!$('nextPay').reportValidity()){$('introError').textContent='Enter your available money and next income date.';return;}
@@ -32,4 +46,4 @@ $('sample').addEventListener('click',()=>{
 // Sample edits stay in memory; never replace previously saved personal bills.
 const saveOwn=save;
 save=function(){if(sampleMode)renderBills();else saveOwn();};
-document.addEventListener('aipayer:event',e=>{if(e.detail==='plan_generated'||e.detail==='sample_plan_generated')document.querySelectorAll('.after-plan').forEach(el=>el.hidden=false);});
+document.addEventListener('aipayer:event',e=>{if(e.detail==='plan_generated'||e.detail==='sample_plan_generated'){setStep(4);document.querySelectorAll('.after-plan').forEach(el=>el.hidden=false);}});
