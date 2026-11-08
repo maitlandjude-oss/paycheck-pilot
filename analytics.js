@@ -19,9 +19,9 @@
   const campaign = campaigns[source + ':' + params.get('utm_campaign')] || (sources.has(source) ? source : '');
   let referrer = '';
   try { referrer = new URL(document.referrer).origin; } catch (_) {}
-  const page = location.pathname === '/paycheck-shortfall.html' ? '/paycheck-shortfall.html' : '/';
+  const page = new Set(['/paycheck-shortfall.html','/payday-kit.html']).has(location.pathname) ? location.pathname : '/';
   
-  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated','walkthrough_play','walkthrough_complete','print_clicked','sample_print_clicked']);
+  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated','walkthrough_play','walkthrough_complete','print_clicked','sample_print_clicked','kit_feedback_clicked']);
   function send(name) {
     if (!allowed.has(name)) return;
     const payload = {path:name,title:name,event:true,referrer:campaign || referrer};
