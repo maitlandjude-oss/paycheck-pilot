@@ -13,7 +13,7 @@
   if (!/^https:\/\/[a-z0-9-]+\.goatcounter\.com\/count$/.test(endpoint) ||
       location.hostname !== 'ai-payer.online' || navigator.webdriver ||
       navigator.globalPrivacyControl || navigator.doNotTrack === '1') return;
-  const campaigns = {'tiktok:payday_2000':'tiktok/payday_2000'};
+  const campaigns = {'tiktok:payday_2000':'tiktok/payday_2000','tiktok:planner_demo':'tiktok/planner_demo','reddit:planner_feedback':'reddit/planner_feedback','scenario:paycheck_shortfall':'scenario/paycheck_shortfall'};
   const sources = new Set(['reddit','tiktok','pinterest','quora','google','bing']);
   const source = params.get('src') || params.get('utm_source');
   const campaign = campaigns[source + ':' + params.get('utm_campaign')] || (sources.has(source) ? source : '');
@@ -21,7 +21,7 @@
   try { referrer = new URL(document.referrer).origin; } catch (_) {}
   const page = location.pathname === '/paycheck-shortfall.html' ? '/paycheck-shortfall.html' : '/';
   
-  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated','walkthrough_play','walkthrough_complete']);
+  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated','walkthrough_play','walkthrough_complete','print_clicked','sample_print_clicked']);
   function send(name) {
     if (!allowed.has(name)) return;
     const payload = {path:name,title:name,event:true,referrer:campaign || referrer};

@@ -19,11 +19,13 @@ function setStep(step){
 }
 function revealPlanner(){document.querySelectorAll('.entry').forEach(el=>el.hidden=false);setStep(2);}
 function ownPlan(){
-  if(sampleMode){bills=ownBills;renderBills();['cash','nextPay','food','transport','needs','buffer'].forEach(id=>$(id).value='');}
+  if(sampleMode){bills=ownBills;renderBills();Object.entries(ownValues).forEach(([id,value])=>$(id).value=value);}
+  document.querySelectorAll('.after-plan').forEach(el=>el.hidden=true);
   sampleMode=false;$('planSection').hidden=true;$('intro').hidden=false;setStep(1);$('intro').focus();
   signal('own_plan_started');
 }
 let ownBills=bills;
+let ownValues={};
 ['cash','nextPay'].forEach(id=>$('moneyStart').append($(id).parentElement));
 // Start with the user's task; keep the optional example below the form.
 $('walkthrough').before($('intro'));
@@ -37,13 +39,18 @@ document.querySelectorAll('.own').forEach(el=>el.addEventListener('click',ownPla
 $('continue').addEventListener('click',()=>{
   if(!$('cash').value||!$('nextPay').value||!$('cash').reportValidity()||!$('nextPay').reportValidity()){$('introError').textContent='Enter your available money and next income date.';return;}
   $('introError').textContent='';revealPlanner();$('billsSection').focus();
+  if(!sampleMode)signal('planner_started');
 });
 $('sample').addEventListener('click',()=>{
-  if(!sampleMode)ownBills=bills;
+  if(!sampleMode){ownBills=bills;ownValues=Object.fromEntries(['cash','nextPay','food','transport','needs','buffer'].map(id=>[id,$(id).value]));}
+  $('planSection').hidden=true;
+  document.querySelectorAll('.after-plan').forEach(el=>el.hidden=true);
   const s=scenario();sampleMode=true;bills=s.bills;renderBills();Object.entries(s.values).forEach(([id,value])=>$(id).value=value);
   $('intro').hidden=false;revealPlanner();$('intro').focus();signal('sample_started');
 });
 // Sample edits stay in memory; never replace previously saved personal bills.
 const saveOwn=save;
 save=function(){if(sampleMode)renderBills();else saveOwn();};
-document.addEventListener('aipayer:event',e=>{if(e.detail==='plan_generated'||e.detail==='sample_plan_generated'){setStep(4);document.querySelectorAll('.after-plan').forEach(el=>el.hidden=false);}});
+document.addEventListener('aipayer:event',e=>{if(e.detail==='plan_generated'||e.detail==='sample_plan_generated'){setStep(4);document.querySelectorAll('.after-plan').forEach(el=>el.hidden=false);$('planContext').textContent=(sampleMode?'Fictional example':'Your entered scenario')+' · Next expected income: '+fmt($('nextPay').value);}});
+// Print locally; financial entries never enter a download service or analytics.
+$('printPlan').addEventListener('click',()=>{signal(sampleMode?'sample_print_clicked':'print_clicked');window.print();});
