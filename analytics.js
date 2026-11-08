@@ -21,7 +21,7 @@
   try { referrer = new URL(document.referrer).origin; } catch (_) {}
   const page = new Set(['/paycheck-shortfall.html','/payday-kit.html']).has(location.pathname) ? location.pathname : '/';
   
-  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated','walkthrough_play','walkthrough_complete','print_clicked','sample_print_clicked','kit_feedback_clicked','kit_invoice_request_clicked']);
+  const allowed = new Set(['planner_started','build_clicked','plan_generated','example_clicked','feedback_submit_attempt','support_clicked','landing','demo_started','demo_completed','own_plan_started','sample_started','sample_plan_generated','walkthrough_play','walkthrough_complete','print_clicked','sample_print_clicked','kit_feedback_clicked','kit_invoice_request_clicked','example_result_viewed','example_edited','example_to_own']);
   function send(name) {
     if (!allowed.has(name)) return;
     const payload = {path:name,title:name,event:true,referrer:campaign || referrer};

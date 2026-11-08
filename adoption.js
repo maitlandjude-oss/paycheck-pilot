@@ -19,7 +19,8 @@ function setStep(step){
 }
 function revealPlanner(){document.querySelectorAll('.entry').forEach(el=>el.hidden=false);setStep(2);}
 function ownPlan(){
-  if(sampleMode){bills=ownBills;renderBills();Object.entries(ownValues).forEach(([id,value])=>$(id).value=value);}
+  if(sampleMode){signal('example_to_own');bills=ownBills;renderBills();Object.entries(ownValues).forEach(([id,value])=>$(id).value=value);}
+  $('sampleNext').hidden=true;
   document.querySelectorAll('.after-plan').forEach(el=>el.hidden=true);
   sampleMode=false;$('planSection').hidden=true;$('intro').hidden=false;setStep(1);$('intro').focus();
   signal('own_plan_started');
@@ -41,16 +42,23 @@ $('continue').addEventListener('click',()=>{
   $('introError').textContent='';revealPlanner();$('billsSection').focus();
   if(!sampleMode)signal('planner_started');
 });
-$('sample').addEventListener('click',()=>{
+function startSample(){
   if(!sampleMode){ownBills=bills;ownValues=Object.fromEntries(['cash','nextPay','food','transport','needs','buffer'].map(id=>[id,$(id).value]));}
   $('planSection').hidden=true;
   document.querySelectorAll('.after-plan').forEach(el=>el.hidden=true);
   const s=scenario();sampleMode=true;bills=s.bills;renderBills();Object.entries(s.values).forEach(([id,value])=>$(id).value=value);
-  $('intro').hidden=false;revealPlanner();$('intro').focus();signal('sample_started');
-});
+  $('intro').hidden=false;revealPlanner();signal('sample_started');buildPlan();signal('example_result_viewed');
+}
+document.querySelectorAll('.sample-trigger').forEach(el=>el.addEventListener('click',startSample));
+$('editExample').addEventListener('click',()=>{$('intro').focus();setStep(1);});
+['cash','nextPay','food','transport','needs','buffer'].forEach(id=>$(id).addEventListener('input',()=>{if(sampleMode)signal('example_edited');}));
+$('billForm').addEventListener('submit',()=>{if(sampleMode)signal('example_edited');});
 // Sample edits stay in memory; never replace previously saved personal bills.
 const saveOwn=save;
 save=function(){if(sampleMode)renderBills();else saveOwn();};
-document.addEventListener('aipayer:event',e=>{if(e.detail==='plan_generated'||e.detail==='sample_plan_generated'){setStep(4);document.querySelectorAll('.after-plan').forEach(el=>el.hidden=false);$('planContext').textContent=(sampleMode?'Fictional example':'Your entered scenario')+' · Next expected income: '+fmt($('nextPay').value);}});
+document.addEventListener('aipayer:event',e=>{if(e.detail==='plan_generated'||e.detail==='sample_plan_generated'){setStep(4);document.querySelectorAll('.after-plan').forEach(el=>el.hidden=sampleMode&&!el.classList.contains('feedback'));$('sampleNext').hidden=!sampleMode;$('planContext').textContent=(sampleMode?'Fictional example':'Your entered scenario')+' · Next expected income: '+fmt($('nextPay').value);}});
 // Print locally; financial entries never enter a download service or analytics.
 $('printPlan').addEventListener('click',()=>{signal(sampleMode?'sample_print_clicked':'print_clicked');window.print();});
+
+// A fixed example link lets feedback volunteers inspect a result immediately.
+document.addEventListener('DOMContentLoaded',()=>{const p=new URLSearchParams(location.search);if(p.get('example')==='1'&&!p.has('walkthrough'))startSample();});
